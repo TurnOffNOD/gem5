@@ -91,6 +91,7 @@ system.mem_ctrl1.port = system.membus.mem_side_ports
 # system.mem_ctrl2 = ExternalSlave()
 system.mem_ctrl2 = DRAMsim3()
 system.mem_ctrl2.configFile = "ext/dramsim3/DRAMsim3/configs/HBM1_4Gb_x128.ini"
+system.mem_ctrl2.filePath = "dramsim3-HBM1_4x128/"
 # system.mem_ctrl2.dram.range = AddrRange("512MB", "1GB") #AttributeError: object 'DRAMsim3' has no attribute 'dram'
 system.mem_ctrl2.port = system.membus.mem_side_ports
 
@@ -101,11 +102,12 @@ system.system_port = system.membus.cpu_side_ports
 # workloads compiled to those ISAs. Other "hello world" binaries for other ISAs
 # can be found in "tests/test-progs/hello".
 thispath = os.path.dirname(os.path.realpath(__file__))
-binary = os.path.join(
-    thispath,
-    "../../../",
-    "tests/test-progs/hello/bin/x86/linux/hello",
-)
+# binary = os.path.join(
+#    thispath,
+#    "../../../",
+#    "tests/test-progs/hello/bin/x86/linux/hello",
+# )
+binary = "/home/tongxian/simulator-docker/wkload/matmul"
 
 system.workload = SEWorkload.init_compatible(binary)
 

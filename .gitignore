@@ -1,3 +1,4 @@
+ext/
 build
 parser.out
 parsetab.py
