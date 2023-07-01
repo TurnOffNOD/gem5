@@ -82,16 +82,16 @@ system.cpu.interrupts[0].int_responder = system.membus.mem_side_ports
 
 # Create a DDR3 memory controller and connect it to the membus
 system.mem_ctrl1 = MemCtrl()
-system.mem_ctrl1.dram = DDR3_1333_1x8()
+system.mem_ctrl1.dram = DDR3_1600_8x8()
 # system.mem_ctrl1.dram.range = system.mem_ranges[0]
-system.mem_ctrl1.dram.range = AddrRange("512MB")
+system.mem_ctrl1.dram.range = AddrRange("128MB", "8192MB")
 system.mem_ctrl1.port = system.membus.mem_side_ports
 
 # Create a dramsim3 memory controller, which will use a 3d(HBM) config, and connect it to the membus
 # system.mem_ctrl2 = ExternalSlave()
-system.mem_ctrl2 = DRAMSim3()
-system.mem_ctrl2.configFile = "configs/DDR3_1Gb_x8_1333.ini"
-system.mem_ctrl2.dram.range = AddrRange("512MB", "1GB")
+system.mem_ctrl2 = DRAMsim3()
+system.mem_ctrl2.configFile = "ext/dramsim3/DRAMsim3/configs/HBM1_4Gb_x128.ini"
+# system.mem_ctrl2.dram.range = AddrRange("512MB", "1GB") #AttributeError: object 'DRAMsim3' has no attribute 'dram'
 system.mem_ctrl2.port = system.membus.mem_side_ports
 
 # Connect the system up to the membus
