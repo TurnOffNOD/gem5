@@ -154,6 +154,18 @@ PySource('gem5.components.cachehierarchies.ruby.caches.mesi_three_level',
 PySource('gem5.components.cachehierarchies.ruby.caches.mesi_three_level',
     'gem5/components/cachehierarchies/ruby/caches/mesi_three_level/'
     'l3_cache.py')
+PySource('gem5.components.cachehierarchies.ruby.caches.mesi_three_level',
+    'gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/'
+    'octopi.py')
+PySource('gem5.components.cachehierarchies.ruby.caches.mesi_three_level',
+    'gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/'
+    'core_complex.py')
+PySource('gem5.components.cachehierarchies.ruby.caches.mesi_three_level',
+    'gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/'
+    'octopi_network.py')
+PySource('gem5.components.cachehierarchies.ruby.caches.mesi_three_level',
+    'gem5/components/cachehierarchies/ruby/caches/prebuilt/octopi_cache/'
+    'ruby_network_components.py')
 PySource('gem5.components.cachehierarchies.ruby.caches.mi_example',
     'gem5/components/cachehierarchies/ruby/caches/mi_example/__init__.py')
 PySource('gem5.components.cachehierarchies.ruby.caches.mi_example',
@@ -299,6 +311,7 @@ PySource('gem5.utils.multiprocessing',
 PySource('', 'importer.py')
 PySource('m5', 'm5/__init__.py')
 PySource('m5', 'm5/SimObject.py')
+PySource('m5', 'm5/citations.py')
 PySource('m5', 'm5/core.py')
 PySource('m5', 'm5/debug.py')
 PySource('m5', 'm5/event.py')

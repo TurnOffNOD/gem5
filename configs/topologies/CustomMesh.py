@@ -36,11 +36,10 @@
 
 import math
 
-from m5.util import fatal
-from m5.params import *
-from m5.objects import *
-
 from m5.defines import buildEnv
+from m5.objects import *
+from m5.params import *
+from m5.util import fatal
 
 if buildEnv["PROTOCOL"] == "CHI":
     import ruby.CHI_config as CHI
@@ -67,7 +66,6 @@ class CustomMesh(SimpleTopology):
         cross_links,
         cross_link_latency,
     ):
-
         # East->West, West->East, North->South, South->North
         # XY routing weights
         link_weights = [1, 1, 2, 2]
@@ -171,7 +169,9 @@ class CustomMesh(SimpleTopology):
     def _createRNFRouter(self, mesh_router):
         # Create a zero-latency router bridging node controllers
         # and the mesh router
-        node_router = self._Router(router_id=len(self._routers), latency=0)
+        node_router = self._Router(
+            router_id=len(self._routers), latency=self.node_router_latency
+        )
         self._routers.append(node_router)
 
         # connect node_router <-> mesh router
@@ -270,6 +270,7 @@ class CustomMesh(SimpleTopology):
         self._ExtLink = ExtLink
         self._Router = Router
 
+        self.node_router_latency = 1 if options.network == "garnet" else 0
         if hasattr(options, "router_link_latency"):
             self._router_link_latency = options.router_link_latency
             self._node_link_latency = options.node_link_latency
