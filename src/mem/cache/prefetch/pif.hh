@@ -138,6 +138,7 @@ class PIF : public Queued
         {
             HistoryBuffer::iterator historyIt;
         };
+
         /**
          * The index table is a small cache-like structure that facilitates
          * fast search of the history buffer.
